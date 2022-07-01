@@ -53,11 +53,10 @@ class User:NSObject, NSCoding{
                 debugPrint(user_details.state ?? "")
                 debugPrint(user_details.country ?? "")
             }
-        }catch{
+       }catch{
             print("error")
-        }
-      }
-     }
+       }
+ 
 ```
 
 
