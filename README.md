@@ -35,3 +35,29 @@ class User:NSObject, NSCoding{
 }
 
 ```
+
+```
+
+     let data = User(name: "John", address: "11A Street", city: "California", state: "California", country: "USA")
+        
+     do{
+         let userDefault = UserDefaults.standard
+         let encodeData = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false)
+         userDefault.set(encodeData, forKey: "user")
+            
+         if let data = UserDefaults.standard.data(forKey: "user"), let user_details = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? User{
+                
+                debugPrint(user_details.name ?? "")
+                debugPrint(user_details.address ?? "")
+                debugPrint(user_details.city ?? "")
+                debugPrint(user_details.state ?? "")
+                debugPrint(user_details.country ?? "")
+            }
+        }catch{
+            print("error")
+        }
+      }
+     }
+```
+
+
